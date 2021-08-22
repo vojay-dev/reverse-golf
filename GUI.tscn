@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[node name="GUI" type="Sprite3D"]
+texture = SubResource( 1 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1024, 600 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Container" type="CenterContainer" parent="Viewport"]
+margin_right = 14.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="Viewport/Container"]
+margin_top = 3.0
+margin_right = 153.0
+margin_bottom = 17.0
+text = "WHAT THE HECK IS THIS"
+
+[node name="Button" type="Button" parent="Viewport/Container"]
+margin_left = 42.0
+margin_right = 111.0
+margin_bottom = 20.0
+text = "aawdawd"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/yay.mp3-9ee5ed4b58255320387604668c2da2ec.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/yay.mp3"
+dest_files=[ "res://.import/yay.mp3-9ee5ed4b58255320387604668c2da2ec.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
