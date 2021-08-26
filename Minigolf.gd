@@ -1,6 +1,6 @@
 extends Spatial
 
-var mouse_sensitivity = 0.003
+var mouse_sensitivity = 0.006
 var rotation_speed = 10
 var rotation_speed_y = 5
 

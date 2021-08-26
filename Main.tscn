@@ -111,4 +111,6 @@ __meta__ = {
 
 [node name="Menu" parent="." instance=ExtResource( 1 )]
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="active_level_changed" from="Menu" to="." method="_on_Menu_active_level_changed"]

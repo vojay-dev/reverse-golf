@@ -21,4 +21,7 @@ func update_level_background():
 	add_child(level)
 
 func _on_Menu_active_level_changed():
+	$WorldEnvironment.environment.adjustment_saturation = 0.3
+	$Tween.interpolate_property($WorldEnvironment.environment, "adjustment_saturation", 0, 1.68, .5, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.start()
 	update_level_background()

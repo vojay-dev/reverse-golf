@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/minigolf gltf/straight.glb" type="PackedScene" id=1]
+[ext_resource path="res://level/StraightRotating.gd" type="Script" id=2]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -0.5, 0.1467, -0.5, -0.5, 0, -0.5, -0.4, 0, -0.5, -0.4, 0, -0.5, -0.4, 0.0633, -0.5, -0.5, 0.1467, -0.5, -0.4, 0.0633, -0.5, -0.4, 0.1467, -0.5, -0.5, 0.1467, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, -0.4, 0, 0.5, -0.4, 0, 0.5, -0.4, 0, -0.5, -0.5, 0, -0.5, -0.4, 0, 0.5, 0.4, 0, 0.5, -0.4, 0, -0.5, 0.4, 0, 0.5, 0.4, 0, -0.5, -0.4, 0, -0.5, 0.4, 0, 0.5, 0.5, 0, 0.5, 0.4, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, 0.4, 0, -0.5, -0.5, 0.1467, -0.5, -0.5, 0.1467, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0.1467, -0.5, 0.5, 0.1467, 0.5, 0.4, 0.1467, 0.5, 0.4, 0.1467, -0.5, 0.4, 0.1467, -0.5, 0.5, 0.1467, -0.5, 0.5, 0.1467, 0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0.1467, 0.5, 0.5, 0.1467, 0.5, 0.5, 0.1467, -0.5, 0.5, 0, -0.5, 0.5, 0.1467, 0.5, 0.5, 0, 0.5, 0.4, 0, 0.5, 0.4, 0, 0.5, 0.4, 0.0633, 0.5, 0.5, 0.1467, 0.5, 0.4, 0.0633, 0.5, 0.4, 0.1467, 0.5, 0.5, 0.1467, 0.5, -0.4, 0.1467, 0.5, -0.5, 0.1467, 0.5, -0.5, 0.1467, -0.5, -0.5, 0.1467, -0.5, -0.4, 0.1467, -0.5, -0.4, 0.1467, 0.5, -0.4, 0.0633, -0.5, -0.4, 0.0633, 0.5, -0.4, 0.1467, 0.5, -0.4, 0.1467, 0.5, -0.4, 0.1467, -0.5, -0.4, 0.0633, -0.5, 0.4, 0.1467, -0.5, 0.4, 0.1467, 0.5, 0.4, 0.0633, 0.5, 0.4, 0.0633, 0.5, 0.4, 0.0633, -0.5, 0.4, 0.1467, -0.5, 0.4, 0.0633, -0.5, 0.4, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0.1467, -0.5, 0.4, 0.0633, -0.5, 0.5, 0.1467, -0.5, 0.4, 0.1467, -0.5, 0.4, 0.0633, -0.5, -0.4, 0.0633, 0.5, -0.4, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0.1467, 0.5, -0.4, 0.0633, 0.5, -0.5, 0.1467, 0.5, -0.4, 0.1467, 0.5, -0.4, 0.0633, 0.5, 0.4, 0.0633, 0.5, -0.4, 0.0633, 0.5, -0.4, 0.0633, -0.5, -0.4, 0.0633, -0.5, 0.4, 0.0633, -0.5, 0.4, 0.0633, 0.5, -0.4, 0.0633, -0.5, -0.4, 0, -0.5, 0.4, 0, -0.5, 0.4, 0, -0.5, 0.4, 0.0633, -0.5, -0.4, 0.0633, -0.5, 0.4, 0.0633, 0.5, 0.4, 0, 0.5, -0.4, 0, 0.5, -0.4, 0, 0.5, -0.4, 0.0633, 0.5, 0.4, 0.0633, 0.5 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("tmpParent:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Rotate"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("tmpParent:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.6, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ), Vector3( 0, 0, 180 ), Vector3( 0, 0, 270 ), Vector3( 0, 0, 360 ) ]
+}
+
+[node name="straight" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="tmpParent/straight2" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="tmpParent/straight2/StaticBody" index="0"]
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 2.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/RESET = SubResource( 2 )
+anims/Rotate = SubResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
