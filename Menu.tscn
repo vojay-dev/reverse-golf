@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Menu.gd" type="Script" id=2]
 [ext_resource path="res://assets/icons/White/1x/audioOn.png" type="Texture" id=4]
-[ext_resource path="res://assets/icons/White/1x/mouse.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/blue_button04.png" type="Texture" id=6]
 [ext_resource path="res://assets/ui/blue_button03.png" type="Texture" id=7]
 [ext_resource path="res://assets/ui/grey_button03.png" type="Texture" id=8]
@@ -67,31 +66,11 @@ margin_bottom = 84.0
 custom_fonts/font = SubResource( 3 )
 text = "REVERSE GOLF"
 
-[node name="CheckBox" type="CheckBox" parent="Control"]
-margin_left = 48.0
-margin_top = 550.0
-margin_right = 457.0
-margin_bottom = 594.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource( 1 )
-custom_fonts/font = SubResource( 2 )
-text = "MOUSE CONTROL (BE CAREFUL)"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Mouse" type="Sprite" parent="Control/CheckBox"]
-position = Vector2( -16, 21 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 5 )
-
 [node name="ActivateMusic" type="CheckBox" parent="Control"]
 margin_left = 48.0
-margin_top = 507.0
+margin_top = 556.0
 margin_right = 436.0
-margin_bottom = 551.0
+margin_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource( 1 )
@@ -110,21 +89,24 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
 
 [node name="ControlContainer" type="CenterContainer" parent="Control"]
-margin_top = 336.0
+margin_top = 368.0
 margin_right = 1024.0
-margin_bottom = 440.0
+margin_bottom = 472.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Control/ControlContainer"]
 margin_left = 249.0
-margin_top = 36.0
+margin_top = 18.0
 margin_right = 774.0
-margin_bottom = 68.0
+margin_bottom = 85.0
 custom_colors/font_color = Color( 0.160784, 0.764706, 1, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "ROTATE THE GOLF COURSE WITH: W, A, S, D"
+text = "ROTATE THE GOLF COURSE WITH: W, A, S, D
+ROTATE CAMERA WITH MOUSE"
+align = 1
+valign = 1
 
 [node name="LevelContainer" type="CenterContainer" parent="Control"]
 margin_top = 140.0
@@ -273,7 +255,6 @@ __meta__ = {
 }
 
 [connection signal="confirmed" from="Control/DialogContainer/ResetTimeDialog" to="." method="_on_ResetTimeDialog_confirmed"]
-[connection signal="toggled" from="Control/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="toggled" from="Control/ActivateMusic" to="." method="_on_ActivateMusic_toggled"]
 [connection signal="pressed" from="Control/LevelContainer/GridContainer/LevelButton1" to="." method="_on_LevelButton1_pressed"]
 [connection signal="pressed" from="Control/LevelContainer/GridContainer/DeleteTimeButton1" to="." method="_on_DeleteTimeButton1_pressed"]

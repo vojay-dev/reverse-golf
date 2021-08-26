@@ -6,7 +6,6 @@ var to_be_resetted = null
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-	$Control/CheckBox.pressed = Global.is_mouse_active()
 	$Control/ActivateMusic.pressed = Global.is_music_active()
 	Global.setup_music()
 

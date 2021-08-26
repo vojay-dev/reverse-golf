@@ -14,8 +14,7 @@ var music_instance = null
 
 var state = {
 	"level_times": {},
-	"music_active": true,
-	"mouse_active": false
+	"music_active": true
 }
 
 var menu = preload("res://Main.tscn")
@@ -26,20 +25,10 @@ func is_music_active():
 
 	return true
 
-func is_mouse_active():
-	if state.has("mouse_active"):
-		return state["mouse_active"]
-
-	return false
-
 func set_music_active(active):
 	state["music_active"] = active
 	write_state()
 	setup_music()
-
-func set_mouse_active(active):
-	state["mouse_active"] = active
-	write_state()
 
 func setup_music():
 	if is_music_active() and not music_instance:
