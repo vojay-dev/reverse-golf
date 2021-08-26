@@ -256,9 +256,12 @@ __meta__ = {
 
 [connection signal="confirmed" from="Control/DialogContainer/ResetTimeDialog" to="." method="_on_ResetTimeDialog_confirmed"]
 [connection signal="toggled" from="Control/ActivateMusic" to="." method="_on_ActivateMusic_toggled"]
+[connection signal="mouse_entered" from="Control/LevelContainer/GridContainer/LevelButton1" to="." method="_on_LevelButton1_mouse_entered"]
 [connection signal="pressed" from="Control/LevelContainer/GridContainer/LevelButton1" to="." method="_on_LevelButton1_pressed"]
 [connection signal="pressed" from="Control/LevelContainer/GridContainer/DeleteTimeButton1" to="." method="_on_DeleteTimeButton1_pressed"]
+[connection signal="mouse_entered" from="Control/LevelContainer/GridContainer/LevelButton2" to="." method="_on_LevelButton2_mouse_entered"]
 [connection signal="pressed" from="Control/LevelContainer/GridContainer/LevelButton2" to="." method="_on_LevelButton2_pressed"]
 [connection signal="pressed" from="Control/LevelContainer/GridContainer/DeleteTimeButton2" to="." method="_on_DeleteTimeButton2_pressed"]
+[connection signal="mouse_entered" from="Control/LevelContainer/GridContainer/LevelButton3" to="." method="_on_LevelButton3_mouse_entered"]
 [connection signal="pressed" from="Control/LevelContainer/GridContainer/LevelButton3" to="." method="_on_LevelButton3_pressed"]
 [connection signal="pressed" from="Control/LevelContainer/GridContainer/DeleteTimeButton3" to="." method="_on_DeleteTimeButton3_pressed"]

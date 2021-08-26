@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal active_level_changed
+
 var game = preload("res://Minigolf.tscn")
 var to_be_resetted = null
 
@@ -77,3 +79,15 @@ func _on_ResetTimeDialog_confirmed():
 		Global.reset_level_time(to_be_resetted)
 		to_be_resetted = null
 		_update_times()
+
+func _on_LevelButton1_mouse_entered():
+	Global.current_level = Global.level1
+	emit_signal("active_level_changed")
+
+func _on_LevelButton2_mouse_entered():
+	Global.current_level = Global.level2
+	emit_signal("active_level_changed")
+
+func _on_LevelButton3_mouse_entered():
+	Global.current_level = Global.level3
+	emit_signal("active_level_changed")
