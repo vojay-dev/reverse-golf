@@ -1,14 +1,5 @@
 extends Spatial
 
-"""
-MUSIC ATTRIBUTION:
-
-Monkeys Spinning Monkeys Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 3.0 License
-http://creativecommons.org/licenses/by/3.0/
-Music promoted by https://www.chosic.com/
-"""
-
 var rotation_speed_y = 5
 
 func _physics_process(delta):

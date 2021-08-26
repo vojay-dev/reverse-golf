@@ -2,6 +2,11 @@ extends Node
 
 const STATE_FILE = "user://state.dat"
 
+var level1 = preload("res://Level1.tscn")
+var level2 = preload("res://Level2.tscn")
+var level3 = preload("res://Level3.tscn")
+
+var current_level = level1
 var current_level_time = 0
 
 var music = preload("res://Music.tscn")

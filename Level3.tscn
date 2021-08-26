@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://level/HoleOpen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/minigolf gltf/flag_blue.glb" type="PackedScene" id=2]
+[ext_resource path="res://level/Straight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/minigolf gltf/flag_red.glb" type="PackedScene" id=4]
+[ext_resource path="res://level/Bump.tscn" type="PackedScene" id=5]
+[ext_resource path="res://level/RoundCorner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Level.gd" type="Script" id=7]
+[ext_resource path="res://level/Castle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://level/End.tscn" type="PackedScene" id=9]
+[ext_resource path="res://level/Gap.tscn" type="PackedScene" id=10]
+[ext_resource path="res://level/Windwill.tscn" type="PackedScene" id=11]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.0719056
+
+[node name="Level" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
+script = ExtResource( 7 )
+level_identifier = "level_3"
+
+[node name="Spawn" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01812, 0.455935, 2.88374 )
+
+[node name="start" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.50103 )
+
+[node name="straight5" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, -0.440096, -1.49897 )
+
+[node name="straight8" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.440096, -1.49897 )
+
+[node name="straight9" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, -0.440096, -2.49897 )
+
+[node name="straight10" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, -0.440096, -2.49897 )
+
+[node name="roundCornerB4" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, -0.44, -1.499 )
+
+[node name="roundCornerB5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.44, -2.499 )
+
+[node name="roundCornerB6" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, -0.44, -2.499 )
+
+[node name="holeOpen" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, -0.44, -3.499 )
+
+[node name="Goal" type="Area" parent="holeOpen"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00317001, 0.040448, 0.00465965 )
+
+[node name="CollisionShape" type="CollisionShape" parent="holeOpen/Goal"]
+shape = SubResource( 1 )
+
+[node name="flag_blue" parent="holeOpen" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00951e-05, 0.0176493, 0.00477028 )
+
+[node name="gap2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0.501 )
+
+[node name="gap3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.499 )
+
+[node name="windmill" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.499 )
+
+[node name="end" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2.4127 )
+
+[node name="end2" parent="." instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, -0.44, -1.499 )
+
+[node name="castle" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.44, -2.499 )
+
+[node name="castle2" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, -0.44, -1.499 )
+
+[node name="flag_red" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.49544 )

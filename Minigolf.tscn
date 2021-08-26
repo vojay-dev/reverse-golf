@@ -1,13 +1,7 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://level/RoundCorner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
-[ext_resource path="res://level/Straight.tscn" type="PackedScene" id=3]
-[ext_resource path="res://level/WallsToOpen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://level/HoleOpen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Minigolf.gd" type="Script" id=6]
-[ext_resource path="res://level/Bump.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/minigolf gltf/flag_blue.glb" type="PackedScene" id=8]
 [ext_resource path="res://assets/environment/ground_grass.glb" type="PackedScene" id=9]
 [ext_resource path="res://assets/environment/tree_default.glb" type="PackedScene" id=10]
 [ext_resource path="res://assets/environment/tree_default_fall.glb" type="PackedScene" id=11]
@@ -16,7 +10,7 @@
 [ext_resource path="res://assets/environment/stone_largeB.glb" type="PackedScene" id=14]
 [ext_resource path="res://assets/environment/tree_blocks.glb" type="PackedScene" id=15]
 [ext_resource path="res://assets/environment/tree_plateau.glb" type="PackedScene" id=16]
-[ext_resource path="res://assets/fonts/Kenney Blocks.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://assets/fonts/ARDARLING.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://assets/ui/blue_button03.png" type="Texture" id=18]
 [ext_resource path="res://assets/icons/White/2x/left.png" type="Texture" id=19]
 [ext_resource path="res://default_theme.tres" type="Theme" id=20]
@@ -24,13 +18,16 @@
 [ext_resource path="res://assets/icons/White/1x/forward.png" type="Texture" id=22]
 [ext_resource path="res://assets/icons expansion/White/1x/fightJoy_26.png" type="Texture" id=23]
 [ext_resource path="res://assets/icons expansion/White/1x/fightJoy_19.png" type="Texture" id=24]
+[ext_resource path="res://assets/sounds/nope.mp3" type="AudioStream" id=25]
+[ext_resource path="res://assets/sounds/phaserUp3.ogg" type="AudioStream" id=26]
+[ext_resource path="res://assets/vignette.png" type="Texture" id=27]
 
-[sub_resource type="SphereShape" id=2]
-radius = 0.0719056
+[sub_resource type="PhysicsMaterial" id=7]
+friction = 0.4
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
-background_color = Color( 0.0784314, 0.0745098, 0.101961, 1 )
+background_color = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
 background_energy = 6.0
 fog_enabled = true
 fog_color = Color( 0.321569, 0.658824, 1, 0.337255 )
@@ -40,7 +37,6 @@ ss_reflections_max_steps = 164
 ss_reflections_fade_in = 0.791703
 ss_reflections_fade_out = 0.965936
 ss_reflections_roughness = false
-ssao_radius = 115.13
 dof_blur_far_distance = 6.13
 dof_blur_far_transition = 6.0
 dof_blur_far_quality = 2
@@ -49,7 +45,7 @@ glow_enabled = true
 glow_strength = 1.12
 adjustment_enabled = true
 adjustment_brightness = 1.2
-adjustment_contrast = 1.28
+adjustment_contrast = 1.23
 adjustment_saturation = 1.68
 
 [sub_resource type="BoxShape" id=3]
@@ -84,6 +80,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Clock:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "TimerHighlight"
@@ -110,46 +118,23 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.282353, 0.905882, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.956863, 0.286275, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Clock:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0, 180.0 ]
 }
 
 [node name="Minigolf" type="Spatial"]
 script = ExtResource( 6 )
-
-[node name="Level" type="Spatial" parent="."]
-
-[node name="flag_blue" parent="Level" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00007, 0.0176493, -1.4942 )
-
-[node name="bump2" parent="Level" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1.50103 )
-
-[node name="straight" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.501026 )
-
-[node name="straight2" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -0.498974 )
-
-[node name="straight3" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -1.49897 )
-
-[node name="straight4" parent="Level" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1.49897 )
-
-[node name="roundCornerB" parent="Level" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -1.49897 )
-
-[node name="wallsToOpen" parent="Level" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 0, -1.49897 )
-
-[node name="holeOpen" parent="Level" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.49897 )
-
-[node name="Goal" type="Area" parent="Level"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00317, 0.040448, -1.49431 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Level/Goal"]
-shape = SubResource( 2 )
 
 [node name="Environment" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
@@ -186,21 +171,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1 )
 [node name="Ball" parent="." groups=[
 "ball",
 ] instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99528, 0.393408, 1.50917 )
-mass = 1.02041
-contacts_reported = 1
-contact_monitor = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99528, 0.393408, 1.64717 )
+mass = 0.714286
+physics_material_override = SubResource( 7 )
+continuous_cd = true
+can_sleep = false
+axis_lock_angular_y = true
 
 [node name="BallLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.99528, 0.840539, 1.50917 )
-light_energy = 2.939
+light_energy = 3.575
 shadow_enabled = true
+spot_angle = 52.15
+spot_angle_attenuation = 2.21914
 
-[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+[node name="CameraPivot" type="Position3D" parent="."]
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="CameraPivot"]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3.24853, 3.46161 )
 current = true
 size = 3.99146
 enabled = true
+
+[node name="Tween" type="Tween" parent="CameraPivot"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -232,10 +225,10 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="CanvasLayer/TitleContainer"]
-margin_left = 410.0
-margin_top = 22.0
-margin_right = 614.0
-margin_bottom = 58.0
+margin_left = 421.0
+margin_top = 24.0
+margin_right = 602.0
+margin_bottom = 56.0
 custom_fonts/font = SubResource( 4 )
 text = "REVERSE GOLF"
 
@@ -243,14 +236,23 @@ text = "REVERSE GOLF"
 position = Vector2( 912, 40 )
 texture = ExtResource( 18 )
 
-[node name="TimerIconTop" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 839, 35 )
+[node name="Clock" type="Control" parent="CanvasLayer"]
+margin_left = 840.0
+margin_top = 40.0
+margin_right = 880.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerIconTop" type="Sprite" parent="CanvasLayer/Clock"]
+position = Vector2( 0, -5 )
 rotation = -1.5708
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
 
-[node name="TimerIconBottom" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 839, 45 )
+[node name="TimerIconBottom" type="Sprite" parent="CanvasLayer/Clock"]
+position = Vector2( 0, 5 )
 rotation = 1.5708
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 19 )
@@ -446,11 +448,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 27 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 0.001
 autostart = true
 
-[connection signal="body_entered" from="Level/Goal" to="." method="_on_Goal_body_entered"]
+[node name="FallDownSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -5.0
+
+[node name="GoalSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = -5.0
+
 [connection signal="timeout" from="DayNightTimer" to="." method="_on_DayNightTimer_timeout"]
 [connection signal="body_entered" from="Ground" to="." method="_on_Ground_body_entered"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]
+[connection signal="finished" from="FallDownSound" to="." method="_on_FallDownSound_finished"]
+[connection signal="finished" from="GoalSound" to="." method="_on_GoalSound_finished"]
