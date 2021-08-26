@@ -27,6 +27,8 @@ func _ready():
 	goal = $Level.find_node("Goal")
 	goal.connect("body_entered", self, "_on_Goal_body_entered")
 
+	Global.current_level_time = 0
+
 func _reset_control_colors():
 	$CanvasLayer/Controls/Right.modulate = Color8(255, 255, 255)
 	$CanvasLayer/Controls/Left.modulate = Color8(255, 255, 255)
@@ -82,6 +84,9 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("menu"):
 		get_tree().change_scene_to(Global.menu)
+
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()
 
 	if Input.is_action_pressed("right"):
 		$Level.rotation_degrees.z -= rotation_speed * delta
