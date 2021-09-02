@@ -7,12 +7,12 @@ var rotation_speed_y = 5
 var light_on = true
 var reached_goal = false
 
+var drag_active = false
+
 var zoom
 var goal
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 	$CanvasLayer/TimerLabel.text = str(Global.current_level_time)
 	zoom = $CameraPivot/InterpolatedCamera.translation.y
 
@@ -46,8 +46,9 @@ func _set_music_pitch():
 			Global.music_instance.pitch_scale = 1
 
 func _input(event):
-	if event is InputEventMouseMotion:
-		$CameraPivot.rotation_degrees.y += -event.relative.x * mouse_sensitivity * 10
+	if drag_active:
+		if event is InputEventMouseMotion:
+			$CameraPivot.rotation_degrees.y += -event.relative.x * mouse_sensitivity * 10
 
 	if event is InputEventMouseButton:
 		if event.is_pressed():
@@ -76,6 +77,14 @@ func _transition_zoom():
 	$CameraPivot/Tween.start()
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("drag_active"):
+		drag_active = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if Input.is_action_just_released("drag_active"):
+		drag_active = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	if reached_goal:
 		return
 

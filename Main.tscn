@@ -11,11 +11,10 @@
 [ext_resource path="res://assets/environment/tree_default_dark.glb" type="PackedScene" id=15]
 [ext_resource path="res://Main.gd" type="Script" id=16]
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=1]
 background_mode = 1
 background_color = Color( 0.0784314, 0.0745098, 0.101961, 1 )
 background_energy = 6.0
-fog_enabled = true
 fog_color = Color( 0.321569, 0.658824, 1, 0.337255 )
 fog_depth_end = 79.5
 fog_depth_curve = 0.659753
@@ -29,14 +28,12 @@ dof_blur_far_transition = 6.0
 dof_blur_far_quality = 2
 dof_blur_near_distance = 8192.0
 dof_blur_near_amount = 0.09
-glow_enabled = true
 glow_strength = 1.12
 adjustment_enabled = true
-adjustment_brightness = 1.2
-adjustment_contrast = 1.28
-adjustment_saturation = 1.68
+adjustment_contrast = 1.22
+adjustment_saturation = 1.27
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 
 uniform float lod: hint_range(0.0, 5) = 0.0;
@@ -47,9 +44,9 @@ void fragment(){
 }
 "
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
-shader_param/lod = 1.0
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 4 )
+shader_param/lod = 0.5
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 16 )
@@ -93,7 +90,7 @@ size = 3.99146
 enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
+environment = SubResource( 1 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.911159, 0.412055, 0, -0.412055, 0.911159, 0, 4.2141, 4.79669 )
@@ -102,7 +99,7 @@ light_energy = 0.7
 [node name="Blur" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Blur"]
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_right = 1024.0
 margin_bottom = 600.0
 __meta__ = {

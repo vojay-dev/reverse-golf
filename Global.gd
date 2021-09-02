@@ -44,6 +44,9 @@ func _ready():
 	write_state()
 	setup_music()
 
+func _process(delta):
+	OS.set_window_title("Reverse Golf | fps: " + str(Engine.get_frames_per_second()))
+
 func load_state():
 	var file = File.new()
 
